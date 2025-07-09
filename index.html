@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Creative Interiors - Home</title>
   <style>
     body {
@@ -17,6 +18,7 @@
       justify-content: space-between;
       padding: 0 40px;
       height: 64px;
+      flex-wrap: wrap;
     }
     .logo-box {
       display: flex;
@@ -43,6 +45,7 @@
       letter-spacing: 2px;
       line-height: 1.1;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      white-space: nowrap;
     }
     nav ul {
       display: flex;
@@ -279,25 +282,121 @@
         flex-direction: column;
         align-items: center;
         gap: 24px;
+        padding: 0 16px;
       }
       .main-card {
         width: 90%;
         min-width: 220px;
         max-width: 500px;
       }
+      .welcome-section {
+        padding: 0 16px;
+      }
     }
-    @media (max-width: 700px) {
+    @media (max-width: 768px) {
       .navbar {
-        padding: 0 10px;
+        padding: 0 16px;
         height: auto;
-        flex-direction: column;
-        align-items: flex-start;
+        min-height: 64px;
+      }
+      .logo-box {
+        gap: 12px;
+      }
+      .logo-text {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+      }
+      .logo-img {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+      }
+      nav ul {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 8px;
+      }
+      nav ul li a {
+        font-size: 0.9rem;
+        padding: 4px 8px;
       }
       .main-cards-row {
-        padding: 0 4px;
+        margin-top: 20px;
+        padding: 0 8px;
+      }
+      .main-card {
+        min-width: 280px;
+      }
+      .welcome-section {
+        margin-top: 24px;
+        padding: 0 16px;
+      }
+      .welcome-title {
+        font-size: 1.1rem;
+      }
+      .welcome-desc {
+        font-size: 1rem;
+      }
+      .yellow-btn, .read-more-btn {
+        font-size: 1rem;
+        padding: 14px 24px;
+        margin: 8px 4px;
+      }
+      .social-float {
+        right: 16px;
+        bottom: 100px;
+      }
+      .contact-float {
+        right: 16px;
+        bottom: 32px;
+      }
+      .contact-float-btn {
+        font-size: 1rem;
+        padding: 10px 20px 10px 40px;
+      }
+      .dropdown-content {
+        position: static;
+        display: block;
+        box-shadow: none;
+        margin-top: 4px;
+        background: rgba(255,255,255,0.95);
+        border-radius: 8px;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    }
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0 8px;
       }
       .logo-text {
         font-size: 1.2rem;
+      }
+      nav ul {
+        gap: 12px;
+      }
+      nav ul li a {
+        font-size: 0.8rem;
+      }
+      .main-card {
+        min-width: 260px;
+      }
+      .welcome-title {
+        font-size: 1rem;
+      }
+      .welcome-desc {
+        font-size: 0.95rem;
+      }
+      .yellow-btn, .read-more-btn {
+        font-size: 0.9rem;
+        padding: 12px 20px;
+        display: block;
+        width: 100%;
+        margin: 8px 0;
+        text-align: center;
       }
     }
   </style>

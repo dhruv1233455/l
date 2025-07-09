@@ -25,7 +25,25 @@
         .dashboard-card button:hover { background: #764ba2; }
         .stat { font-size: 2rem; color: #667eea; margin: 0.5rem 0; }
         .footer { background: #222; color: #fff; text-align: center; padding: 1rem 0; margin-top: 3rem; }
-        @media (max-width: 900px) { .dashboard-grid { grid-template-columns: 1fr; } .main-content { width: 98%; } }
+        @media (max-width: 768px) { 
+            .navbar { padding: 0.5rem 0; }
+            .nav-container { width: 95%; flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 0.9rem; }
+            .dashboard-grid { grid-template-columns: 1fr; gap: 1.5rem; } 
+            .main-content { width: 95%; margin-top: 4rem; } 
+            .dashboard-card { padding: 1.5rem; }
+            .section-title { font-size: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .logo { font-size: 1.2rem; }
+            .nav-links a { font-size: 0.8rem; }
+            .main-content { width: 98%; }
+            .dashboard-card { padding: 1rem; }
+            .dashboard-card h3 { font-size: 1.1rem; }
+            .dashboard-card input, .dashboard-card textarea { font-size: 0.9rem; }
+            .stat { font-size: 1.5rem; }
+        }
     </style>
 </head>
 <body>

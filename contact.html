@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us - Creative Interiors</title>
   <style>
     body {
@@ -160,23 +161,82 @@
       font-size: 1.1rem;
       margin-bottom: 10px;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
+      .header {
+        padding: 0 16px;
+        flex-wrap: wrap;
+        min-height: 64px;
+      }
+      .logo-text {
+        font-size: 1.4rem;
+      }
       nav ul {
         gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 8px;
       }
-    }
-    @media (max-width: 700px) {
-      .contact-card {
-        padding: 32px 8px 24px 8px;
+      nav ul li a {
+        font-size: 0.9rem;
+        padding: 4px 8px;
       }
-      .main-content {
-        padding: 24px 0 32px 0;
-      }
-      .contact-title, .breadcrumb {
+      .contact-title {
+        font-size: 1.5rem;
         margin-left: 16px;
       }
+      .breadcrumb {
+        margin-left: 16px;
+        font-size: 0.9rem;
+      }
+      .main-content {
+        padding: 20px 8px 40px 8px;
+      }
+      .contact-card {
+        padding: 32px 16px 24px 16px;
+      }
+      .contact-card h2 {
+        font-size: 1.5rem;
+      }
+      .contact-card p {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 480px) {
       .header {
-        padding: 0 10px;
+        padding: 0 8px;
+      }
+      .logo-text {
+        font-size: 1.2rem;
+      }
+      nav ul {
+        gap: 12px;
+      }
+      nav ul li a {
+        font-size: 0.8rem;
+      }
+      .contact-title {
+        font-size: 1.3rem;
+        margin-left: 8px;
+      }
+      .breadcrumb {
+        margin-left: 8px;
+        font-size: 0.8rem;
+      }
+      .contact-card {
+        padding: 24px 12px 20px 12px;
+      }
+      .contact-card h2 {
+        font-size: 1.3rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 1rem;
+        padding: 14px 12px;
+      }
+      .contact-form button {
+        font-size: 1rem;
+        padding: 10px 28px;
       }
     }
   </style>

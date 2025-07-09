@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Creative Interiors</title>
   <style>
     body {
@@ -146,14 +147,84 @@
       background: #fc5c7d;
       color: #fff;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
+      .header {
+        padding: 0 16px;
+        flex-wrap: wrap;
+        min-height: 64px;
+      }
+      .logo-text {
+        font-size: 1.4rem;
+      }
+      nav ul {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 8px;
+      }
+      nav ul li a {
+        font-size: 0.9rem;
+        padding: 4px 8px;
+      }
+      .about-section {
+        margin-top: 24px;
+        padding: 0 8px;
+      }
+      .about-title {
+        font-size: 1.5rem;
+      }
+      .about-desc-card {
+        padding: 1.5rem 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .about-desc-card p {
+        font-size: 1rem;
+      }
       .about-images {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
+      }
+      .about-images img {
+        width: 100%;
+        max-width: 320px;
       }
       .card-grid {
         flex-direction: column;
         align-items: center;
+        gap: 1.5rem;
+      }
+      .card {
+        max-width: 100%;
+        min-width: 280px;
+      }
+    }
+    @media (max-width: 480px) {
+      .header {
+        padding: 0 8px;
+      }
+      .logo-text {
+        font-size: 1.2rem;
+      }
+      nav ul {
+        gap: 12px;
+      }
+      nav ul li a {
+        font-size: 0.8rem;
+      }
+      .about-title {
+        font-size: 1.3rem;
+      }
+      .about-desc-card {
+        padding: 1rem;
+      }
+      .about-desc-card p {
+        font-size: 0.95rem;
+      }
+      .card {
+        padding: 1.5rem 1rem;
+        min-width: 260px;
       }
     }
   </style>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vastu Consultancy - Creative Interiors</title>
   <style>
     body {
@@ -117,11 +118,83 @@
     .process-icon {
       color: #6a82fb;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
+      .header {
+        padding: 0 16px;
+        flex-wrap: wrap;
+        min-height: 64px;
+      }
+      .logo-text {
+        font-size: 1.4rem;
+      }
+      nav ul {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 8px;
+      }
+      nav ul li a {
+        font-size: 0.9rem;
+        padding: 4px 8px;
+      }
+      .main-content {
+        margin-top: 24px;
+        padding: 0 8px;
+      }
       .services-icons, .process-icons {
         flex-direction: column;
         align-items: center;
         gap: 24px;
+      }
+      .service-icon {
+        min-width: 200px;
+        max-width: 280px;
+      }
+      .process-icon {
+        min-width: 140px;
+        max-width: 160px;
+      }
+    }
+    @media (max-width: 480px) {
+      .header {
+        padding: 0 8px;
+      }
+      .logo-text {
+        font-size: 1.2rem;
+      }
+      nav ul {
+        gap: 12px;
+      }
+      nav ul li a {
+        font-size: 0.8rem;
+      }
+      .yellow {
+        font-size: 1.5rem;
+      }
+      .main-content div {
+        font-size: 1rem;
+      }
+      .service-icon {
+        min-width: 180px;
+        max-width: 260px;
+      }
+      .service-icon span {
+        font-size: 2.5rem;
+      }
+      .service-icon-label {
+        font-size: 1rem;
+      }
+      .process-icon {
+        min-width: 120px;
+        max-width: 140px;
+        padding: 20px 16px;
+      }
+      .process-icon span {
+        font-size: 2rem;
+      }
+      .process-label {
+        font-size: 0.9rem;
       }
     }
   </style>
