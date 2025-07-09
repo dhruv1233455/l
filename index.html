@@ -19,6 +19,7 @@
       padding: 0 40px;
       height: 64px;
       flex-wrap: wrap;
+      position: relative;
     }
     .logo-box {
       display: flex;
@@ -46,6 +47,110 @@
       line-height: 1.1;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       white-space: nowrap;
+    }
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .mobile-menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 3px 0;
+      background: #fff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      transition: opacity 0.3s;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 280px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: 2px 0 16px rgba(0,0,0,0.1);
+      z-index: 1001;
+      flex-direction: column;
+      padding: 80px 0 0 0;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+    }
+    .mobile-menu.active {
+      left: 0;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-menu ul li {
+      border-bottom: 1px solid #eee;
+    }
+    .mobile-menu ul li:last-child {
+      border-bottom: none;
+    }
+    .mobile-menu ul li a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 18px 24px;
+      display: block;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.5px;
+    }
+    .mobile-menu ul li a:hover,
+    .mobile-menu ul li a.active {
+      background: #f8f9fa;
+      color: #6a82fb;
+      font-weight: bold;
+    }
+    .mobile-menu .submenu {
+      background: #f8f9fa;
+      padding-left: 20px;
+    }
+    .mobile-menu .submenu li {
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .mobile-menu .submenu li a {
+      font-size: 1rem;
+      padding: 14px 24px;
+      color: #666;
+    }
+    .mobile-menu .submenu li a:hover {
+      color: #6a82fb;
+      background: #fff;
     }
     nav ul {
       display: flex;
@@ -296,8 +401,14 @@
     @media (max-width: 768px) {
       .navbar {
         padding: 0 16px;
-        height: auto;
+        height: 64px;
         min-height: 64px;
+      }
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      nav {
+        display: none;
       }
       .logo-box {
         gap: 12px;
@@ -310,17 +421,6 @@
         width: 40px;
         height: 40px;
         font-size: 1.5rem;
-      }
-      nav ul {
-        gap: 16px;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-        margin-top: 8px;
-      }
-      nav ul li a {
-        font-size: 0.9rem;
-        padding: 4px 8px;
       }
       .main-cards-row {
         margin-top: 20px;
@@ -356,17 +456,6 @@
         font-size: 1rem;
         padding: 10px 20px 10px 40px;
       }
-      .dropdown-content {
-        position: static;
-        display: block;
-        box-shadow: none;
-        margin-top: 4px;
-        background: rgba(255,255,255,0.95);
-        border-radius: 8px;
-      }
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
     }
     @media (max-width: 480px) {
       .navbar {
@@ -380,6 +469,9 @@
       }
       nav ul li a {
         font-size: 0.8rem;
+      }
+      .mobile-menu {
+        width: 260px;
       }
       .main-card {
         min-width: 260px;
@@ -408,6 +500,11 @@
       <div class="logo-img"><span style="font-size:2rem;">&#9633;</span></div>
       <div class="logo-text">CREATIVE INTERIORS</div>
     </div>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       <ul>
         <li><a href="index.html" class="active">HOME</a></li>
@@ -426,6 +523,29 @@
       </ul>
     </nav>
   </div>
+  
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html" class="active">HOME</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="projects.html">PROJECTS</a></li>
+      <li class="submenu">
+        <ul>
+          <li><a href="projects.html">ARCHITECTURE</a></li>
+          <li><a href="interior_design.html">INTERIOR DESIGN</a></li>
+          <li><a href="commercial_interior_design.html">COMMERCIAL INTERIOR DESIGN</a></li>
+        </ul>
+      </li>
+      <li><a href="services.html">SERVICES</a></li>
+      <li><a href="vastu-consultancy.html">VASTU CONSULTANCY</a></li>
+      <li><a href="contact.html">CONTACT US</a></li>
+    </ul>
+  </div>
+  
   <div class="main-cards-row">
     <div class="main-card">
       <img src="https://images.unsplash.com/photo-1503389152951-9c3d029fd6a0?auto=format&fit=crop&w=800&q=80" alt="Architecture Blueprint" tabindex="0">
@@ -489,5 +609,50 @@
       9892766618, 9137665817
     </div>
   </footer>
+  
+  <script>
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const overlay = document.querySelector('.mobile-menu-overlay');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      
+      if (mobileMenu.classList.contains('active')) {
+        closeMobileMenu();
+      } else {
+        mobileMenu.classList.add('active');
+        mobileMenu.style.display = 'flex';
+        overlay.style.display = 'block';
+        toggle.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    
+    function closeMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const overlay = document.querySelector('.mobile-menu-overlay');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      
+      mobileMenu.classList.remove('active');
+      overlay.style.display = 'none';
+      toggle.classList.remove('active');
+      document.body.style.overflow = '';
+      
+      setTimeout(() => {
+        mobileMenu.style.display = 'none';
+      }, 300);
+    }
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Close menu on window resize if desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        closeMobileMenu();
+      }
+    });
+  </script>
 </body>
 </html> 
